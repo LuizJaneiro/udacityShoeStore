@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         Timber.plant(Timber.DebugTree())
 
         drawerLayout = binding.drawerLayout
-        appBarConfig = AppBarConfiguration(setOf(R.id.loginFragment, R.id.shoeListFragment), drawerLayout)
+        appBarConfig = AppBarConfiguration(setOf(R.id.loginFragment, R.id.welcomeFragment, R.id.shoeListFragment), drawerLayout, ::onSupportNavigateUp)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfig)
 
         NavigationUI.setupWithNavController(binding.navView, navController)
