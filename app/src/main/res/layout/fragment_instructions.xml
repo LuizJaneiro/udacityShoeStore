@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--The layout is simple, so i used a linear layout-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/instructionsTitleTextView"
@@ -13,38 +14,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_large"
-            android:text="@string/instructions"
-            app:layout_constraintBottom_toTopOf="@+id/instructionsDescriptionTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/instructions" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/instructionsDescriptionTextView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:layout_marginTop="48dp"
             android:gravity="center"
             android:text="@string/instructions_description"
-            android:textSize="@dimen/text_medium"
-            app:layout_constraintBottom_toTopOf="@+id/enterButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instructionsTitleTextView" />
+            android:textSize="@dimen/text_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/enterButton"
-            android:theme="@style/AppButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:text="@string/go_to_store"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instructionsDescriptionTextView"
-            tools:layout_editor_absoluteX="16dp" />
+            android:theme="@style/AppButton" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

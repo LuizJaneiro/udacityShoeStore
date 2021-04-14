@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.udacity.shoestore.ShoeListViewModel" />
     </data>
 
+    <!--Here, the layout is quite complex, so i used constraint layout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -102,21 +104,21 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/saveButton"
-            android:theme="@style/AppButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.addShoe(shoeNameEditText.getText().toString(), sizeEditText.getText().toString(), companyEditText.getText().toString(), descriptionEditText.getText().toString())}"
             android:layout_margin="@dimen/margin_small"
+            android:onClick="@{() -> viewModel.addShoe(shoeNameEditText.getText().toString(), sizeEditText.getText().toString(), companyEditText.getText().toString(), descriptionEditText.getText().toString())}"
             android:text="@string/save"
+            android:theme="@style/AppButton"
             app:layout_constraintBottom_toTopOf="@id/cancelButton" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancelButton"
-            android:theme="@style/AppButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:text="@string/cancel"
+            android:theme="@style/AppButton"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
