@@ -33,7 +33,9 @@
             android:layout_margin="@dimen/margin_small"
             app:layout_constraintBottom_toTopOf="@+id/companyTextInput"
             app:layout_constraintTop_toBottomOf="@+id/detailsTitleTextView"
-            tools:layout_editor_absoluteX="16dp">
+            tools:layout_editor_absoluteX="@dimen/margin_small"
+            app:error="@{viewModel.errorNameData}"
+            app:errorEnabled="true">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/shoeNameEditText"
@@ -41,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/shoe_name"
+                android:text="@={viewModel.shoeNameData}"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -52,7 +55,9 @@
             android:layout_margin="@dimen/margin_small"
             app:layout_constraintBottom_toTopOf="@+id/sizeTextInput"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameTextInput"
-            tools:layout_editor_absoluteX="16dp">
+            tools:layout_editor_absoluteX="16dp"
+            app:error="@{viewModel.errorCompanyData}"
+            app:errorEnabled="true">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/companyEditText"
@@ -60,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/company"
+                android:text="@={viewModel.shoeCompanyData}"
                 android:inputType="textCapWords" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -71,7 +77,9 @@
             android:layout_margin="@dimen/margin_small"
             app:layout_constraintBottom_toTopOf="@+id/descriptionTextInput"
             app:layout_constraintTop_toBottomOf="@+id/companyTextInput"
-            tools:layout_editor_absoluteX="16dp">
+            tools:layout_editor_absoluteX="16dp"
+            app:error="@{viewModel.errorSizeData}"
+            app:errorEnabled="true">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/sizeEditText"
@@ -79,6 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/size"
+                android:text="@={viewModel.shoeSizeData}"
                 android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -90,7 +99,9 @@
             android:layout_margin="@dimen/margin_small"
             app:layout_constraintBottom_toTopOf="@+id/saveButton"
             app:layout_constraintTop_toBottomOf="@+id/sizeTextInput"
-            tools:layout_editor_absoluteX="16dp">
+            tools:layout_editor_absoluteX="16dp"
+            app:error="@{viewModel.errorDescriptionData}"
+            app:errorEnabled="true">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/descriptionEditText"
@@ -98,6 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/description"
+                android:text="@={viewModel.shoeDescriptionData}"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -107,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
-            android:onClick="@{() -> viewModel.addShoe(shoeNameEditText.getText().toString(), sizeEditText.getText().toString(), companyEditText.getText().toString(), descriptionEditText.getText().toString())}"
+            android:onClick="@{() -> viewModel.addShoe()}"
             android:text="@string/save"
             android:theme="@style/AppButton"
             app:layout_constraintBottom_toTopOf="@id/cancelButton" />

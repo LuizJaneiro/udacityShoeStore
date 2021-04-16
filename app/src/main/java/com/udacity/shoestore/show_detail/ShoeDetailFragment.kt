@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.ShoeListViewModel
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
@@ -48,9 +46,6 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.errorData.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
-        })
         viewModel.successData.observe(viewLifecycleOwner, Observer {
             if(it) {
                 findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
